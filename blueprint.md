@@ -22,6 +22,7 @@ A web application that generates and displays random lottery numbers.
 *   **Display:** Displays the generated numbers in colored circles with staggered animations.
 *   **Theme Toggle:** A floating button to switch between Dark and Light themes, with preference saved in `localStorage`.
 *   **Partnership Inquiry:** A specialized form powered by **Formspree** for business inquiries.
+*   **Comments System:** Integrated **Disqus** thread for user engagement and feedback.
 *   **Interaction:** A button to trigger the generation of new numbers with visual feedback.
 *   **Accessibility:** Screen reader support (`aria-live`) and proper keyboard navigation.
 
@@ -31,3 +32,4 @@ A web application that generates and displays random lottery numbers.
 2.  **Aesthetics & Animations:** Premium visuals and staggered pop-in effects.
 3.  **Theme Management:** Dark/Light mode toggle with persistence.
 4.  **Inquiry Form:** Integration of a Formspree-powered partnership form.
+5.  **Comments:** Implementation of Disqus commenting system.

@@ -125,6 +125,21 @@ body::before {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
+#comments {
+    margin-top: 60px;
+    background: var(--app-bg);
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 var(--shadow-color);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--border-color);
+    max-width: 600px;
+    width: 90%;
+    z-index: 1;
+    transition: all 0.5s ease;
+}
+
 #theme-toggle {
     position: absolute;
     top: 20px;
