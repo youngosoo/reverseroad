@@ -1,59 +1,241 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lotto Number Generator</title>
+    <title>로컬 WAV to MP3 변환기</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- LameJS for client-side MP3 Encoding -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lamejs/1.2.1/lame.min.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="dark-theme">
-    <button id="theme-toggle" aria-label="Toggle dark/light mode">
-        <span class="sun-icon">☀️</span>
-        <span class="moon-icon">🌙</span>
-    </button>
-    <div id="app">
-        <h1>Lotto Number Generator</h1>
-        <div class="numbers-container" aria-live="polite"></div>
-        <button id="generate-btn">Generate Numbers</button>
-    </div>
+<body class="text-slate-100 min-h-screen flex flex-col justify-between">
 
-    <section id="partnership">
-        <h2>Partnership Inquiry</h2>
-        <form action="https://formspree.io/f/mykaejbj" method="POST">
-            <div class="form-group">
-                <input type="text" name="name" placeholder="Your Name" required>
+    <!-- Header Section -->
+    <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap justify-between items-center gap-4">
+            <div class="flex items-center space-x-3">
+                <div class="bg-indigo-600 text-white p-2.5 rounded-xl shadow-lg shadow-indigo-500/30">
+                    <i class="fa-solid fa-arrows-rotate text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
+                        WAV to MP3 고음질 변환기 <span class="text-xs bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded-full border border-indigo-500/30">Pro Local Converter</span>
+                    </h1>
+                    <p class="text-xs text-slate-400">서버 업로드 없이 내 컴퓨터에서 안전하게 MP3 인코딩</p>
+                </div>
             </div>
-            <div class="form-group">
-                <input type="email" name="email" placeholder="Your Email" required>
+            <div class="flex items-center space-x-2 text-xs text-slate-400">
+                <i class="fa-solid fa-lock text-emerald-400"></i>
+                <span>개인정보 안심 보호: 오디오 데이터 유출 걱정이 없습니다.</span>
             </div>
-            <div class="form-group">
-                <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Send Inquiry</button>
-        </form>
-    </section>
+        </div>
+    </header>
 
-    <section id="comments">
-        <div id="disqus_thread"></div>
-        <script>
-            /**
-            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-            /*
-            var disqus_config = function () {
-            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-            };
-            */
-            (function() { // DON'T EDIT BELOW THIS LINE
-            var d = document, s = d.createElement('script');
-            s.src = 'https://reversroad.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-            })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </section>
+    <!-- Main Container -->
+    <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Left Section: File Upload, Config, Custom Helper (5 Columns) -->
+        <div class="lg:col-span-5 space-y-6">
+            
+            <!-- Drag & Drop Zone -->
+            <div id="drop-zone" class="border-2 border-dashed border-slate-700 hover:border-indigo-500 bg-slate-900/40 rounded-2xl p-8 text-center cursor-pointer transition-all group relative overflow-hidden">
+                <input type="file" id="file-input" accept=".wav" class="hidden">
+                <div class="space-y-4">
+                    <div class="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mx-auto group-hover:bg-indigo-600/10 group-hover:text-indigo-400 text-slate-400 transition-all">
+                        <i class="fa-solid fa-file-arrow-up text-2xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold text-slate-200">변환할 WAV 파일을 선택하세요</p>
+                        <p class="text-xs text-slate-500 mt-1">이곳에 파일을 드래그 앤 드롭 하거나 클릭하세요.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Configuration Card -->
+            <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-5">
+                <h3 class="text-sm font-semibold text-slate-200 flex items-center gap-2">
+                    <i class="fa-solid fa-gear text-indigo-400"></i> 변환 설정 (MP3 Bitrate)
+                </h3>
+                
+                <!-- MP3 Bitrate Control -->
+                <div class="space-y-3 bg-slate-950/40 p-4 rounded-xl border border-slate-800/80">
+                    <div class="flex justify-between items-center text-xs">
+                        <label for="bitrate-select" class="text-slate-400 font-medium">MP3 오디오 품질</label>
+                        <span id="bitrate-value" class="text-indigo-400 font-bold">192 kbps (표준 음질)</span>
+                    </div>
+                    <select id="bitrate-select" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-xs text-slate-200 focus:outline-none focus:border-indigo-500 cursor-pointer">
+                        <option value="128">128 kbps (일반 용량 최적화)</option>
+                        <option value="192" selected="">192 kbps (고품질 표준 추천)</option>
+                        <option value="256">256 kbps (초고음질 전송용)</option>
+                        <option value="320">320 kbps (스튜디오 원음급 품질)</option>
+                    </select>
+                </div>
+
+                <!-- Run Button -->
+                <button id="convert-btn" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3.5 px-4 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-indigo-600/30" disabled>
+                    <i class="fa-solid fa-play"></i> MP3로 변환하기
+                </button>
+            </div>
+
+            <!-- Notepad Save & Code Copy Helper Panel -->
+            <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-4">
+                <h3 class="text-sm font-semibold text-slate-200 flex items-center gap-2">
+                    <i class="fa-solid fa-floppy-disk text-amber-400"></i> 메모장 저장 & 앱 파일 소장하기
+                </h3>
+                <div class="text-xs text-slate-400 space-y-2 leading-relaxed">
+                    <p class="font-medium text-slate-300">💡 내 컴퓨터에 무설치 프로그램으로 보관하는 법:</p>
+                    <ol class="list-decimal list-inside space-y-1 text-slate-400">
+                        <li>아래 <strong class="text-slate-200">'전체 소스코드 복사'</strong> 버튼을 클릭합니다.</li>
+                        <li>메모장을 열고 <kbd class="px-1.5 py-0.5 bg-slate-800 text-slate-300 rounded text-[10px]">Ctrl + V</kbd>로 붙여넣습니다.</li>
+                        <li>파일 형식은 <strong class="text-slate-200">모든 파일 (*.*)</strong>로 변경합니다.</li>
+                        <li>이름을 <strong class="text-indigo-300">wav_to_mp3_converter.html</strong>로 입력합니다.</li>
+                        <li>인코딩 방식을 반드시 <strong class="text-amber-400 font-bold">UTF-8</strong>로 지정하고 저장해 주세요.</li>
+                    </ol>
+                </div>
+                <div class="grid grid-cols-2 gap-2 pt-2">
+                    <!-- Copy Source Button -->
+                    <button id="copy-source-btn" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 transition-colors border border-slate-700">
+                        <i class="fa-solid fa-copy"></i> 전체 소스코드 복사
+                    </button>
+                    <!-- Direct HTML Download Button -->
+                    <button id="download-app-btn" class="bg-indigo-600/20 hover:bg-indigo-600/30 text-indigo-300 text-xs font-semibold py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 transition-colors border border-indigo-500/30">
+                        <i class="fa-solid fa-file-arrow-down"></i> 앱(HTML) 바로 다운
+                    </button>
+                </div>
+            </div>
+
+            <!-- Toast alert message container -->
+            <div id="status-toast" class="bg-slate-900 border border-slate-800 shadow-2xl rounded-xl p-4 flex items-start gap-3 text-xs transition-all hidden">
+                <div id="toast-icon-bg" class="p-2 rounded-lg bg-emerald-500 text-white">
+                    <i id="toast-icon" class="fa-solid fa-circle-check"></i>
+                </div>
+                <div class="flex-grow space-y-1">
+                    <p id="toast-title" class="font-bold text-slate-200">MP3 변환 완료!</p>
+                    <p id="toast-desc" class="text-slate-400">고음질 단일 MP3 파일 생성이 완벽하게 종료되었습니다.</p>
+                </div>
+                <button onclick="hideToast()" class="text-slate-500 hover:text-slate-300"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        </div>
+
+        <!-- Right Section: WAV Info, Converter Process, Converted Result (7 Columns) -->
+        <div class="lg:col-span-7 space-y-6">
+            
+            <!-- Original File Info Container (Initially Hidden) -->
+            <div id="file-info-card" class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-4 hidden">
+                <div class="flex justify-between items-start pb-4 border-b border-slate-800">
+                    <div>
+                        <span class="text-[10px] bg-slate-800 text-indigo-300 px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">입력 소스파일</span>
+                        <h2 id="info-filename" class="text-base font-bold text-white truncate max-w-xs md:max-w-md mt-2">파일 이름</h2>
+                        <span id="info-filesize" class="text-xs text-indigo-400 font-semibold">용량</span>
+                    </div>
+                    <button id="clear-file-btn" class="text-xs text-rose-400 hover:text-rose-300 flex items-center gap-1 transition-colors">
+                        <i class="fa-solid fa-trash-can"></i> 파일 지우기
+                    </button>
+                </div>
+
+                <!-- Audio Technical details -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-2">
+                    <div class="bg-slate-950/40 p-3 rounded-xl border border-slate-800/60">
+                        <p class="text-[10px] text-slate-500 uppercase tracking-wider">포맷 타입</p>
+                        <p id="tech-format" class="text-sm font-semibold text-slate-300 mt-1">-</p>
+                    </div>
+                    <div class="bg-slate-950/40 p-3 rounded-xl border border-slate-800/60">
+                        <p class="text-[10px] text-slate-500 uppercase tracking-wider">채널 사양</p>
+                        <p id="tech-channels" class="text-sm font-semibold text-slate-300 mt-1">-</p>
+                    </div>
+                    <div class="bg-slate-950/40 p-3 rounded-xl border border-slate-800/60">
+                        <p class="text-[10px] text-slate-500 uppercase tracking-wider">샘플 레이트</p>
+                        <p id="tech-samplerate" class="text-sm font-semibold text-slate-300 mt-1">-</p>
+                    </div>
+                    <div class="bg-slate-950/40 p-3 rounded-xl border border-slate-800/60">
+                        <p class="text-[10px] text-slate-500 uppercase tracking-wider">비트 깊이</p>
+                        <p id="tech-bits" class="text-sm font-semibold text-slate-300 mt-1">-</p>
+                    </div>
+                </div>
+
+                <!-- Approximate Duration Info -->
+                <div class="flex justify-between items-center p-3.5 bg-indigo-950/10 rounded-xl border border-indigo-500/10">
+                    <span class="text-xs text-indigo-300 font-medium">총 오디오 길이</span>
+                    <span id="tech-duration" class="text-sm font-bold text-indigo-400">00:00:00</span>
+                </div>
+            </div>
+
+            <!-- Converting Progress Panel (Initially Hidden) -->
+            <div id="processing-card" class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-4 hidden">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-sm font-semibold text-slate-200 flex items-center gap-2">
+                        <i class="fa-solid fa-arrows-rotate animate-spin text-indigo-400"></i> 
+                        <span id="processing-title-text">MP3 인코딩 진행 중...</span>
+                    </h3>
+                    <span id="processing-percent" class="text-xs text-indigo-400 font-bold">0%</span>
+                </div>
+                <!-- Progress bar -->
+                <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+                    <div id="processing-bar" class="bg-indigo-500 h-full transition-all duration-200" style="width: 0%;"></div>
+                </div>
+                <p id="processing-msg" class="text-[11px] text-slate-400">데이터 준비 중...</p>
+            </div>
+
+            <!-- Single Output Result Card (Initially Hidden) -->
+            <div id="result-card" class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-5 hidden">
+                <div class="pb-3 border-b border-slate-800 flex justify-between items-center">
+                    <div>
+                        <span class="text-[10px] bg-emerald-500/15 text-emerald-400 px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">변환된 결과물</span>
+                        <h3 id="result-filename" class="text-base font-bold text-white truncate max-w-xs md:max-w-md mt-2">파일이름.mp3</h3>
+                    </div>
+                    <span id="saving-badge" class="bg-emerald-500 text-slate-950 font-extrabold text-[11px] px-2 py-1 rounded-lg">-0% 절감</span>
+                </div>
+
+                <!-- File Sizes Comparison Dashboard -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-slate-950/30 p-3.5 rounded-xl border border-slate-800/80">
+                        <p class="text-[10px] text-slate-500">이전 용량 (WAV)</p>
+                        <p id="size-before" class="text-sm font-semibold text-slate-400 mt-1">-</p>
+                    </div>
+                    <div class="bg-slate-950/30 p-3.5 rounded-xl border border-slate-800/80">
+                        <p class="text-[10px] text-slate-400 font-medium">현재 압축 용량 (MP3)</p>
+                        <p id="size-after" class="text-sm font-bold text-emerald-400 mt-1">-</p>
+                    </div>
+                </div>
+
+                <!-- Embedded HTML Audio Player -->
+                <div class="bg-slate-950/50 p-4 rounded-xl border border-slate-800/80 space-y-2">
+                    <p class="text-xs font-semibold text-slate-300"><i class="fa-solid fa-volume-high text-indigo-400"></i> 오디오 미리 듣기</p>
+                    <audio id="result-audio-player" controls class="w-full h-10 accent-indigo-500 bg-slate-900 rounded-lg"></audio>
+                </div>
+
+                <!-- Download Trigger Button -->
+                <a id="download-mp3-btn" href="#" download="" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 px-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20 text-sm">
+                    <i class="fa-solid fa-download"></i> MP3 파일 저장하기
+                </a>
+            </div>
+
+            <!-- Dynamic Guide Panel (Shows when no file loaded) -->
+            <div id="guide-card" class="bg-slate-900/40 border border-slate-800/80 rounded-2xl p-6 space-y-4">
+                <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400">안전 가이드 및 변환 정보</h3>
+                <div class="space-y-3 text-xs text-slate-400 leading-relaxed">
+                    <div class="flex gap-2">
+                        <span class="text-indigo-400 font-bold">Q1.</span>
+                        <p><strong>왜 MP3 변환기나 웹에 업로드하지 않고 로컬 변환을 해야 하나요?</strong><br>민감한 오디오 파일을 외부 서버에 업로드할 경우 정보 유출 리스크가 있습니다. 이 앱은 모든 변환을 브라우저 메모리 내에서 수행하여 데이터 유출을 원천 차단합니다.</p>
+                    </div>
+                    <div class="flex gap-2 border-t border-slate-800/40 pt-3">
+                        <span class="text-indigo-400 font-bold">Q2.</span>
+                        <p><strong>큰 파일도 변환이 가능한가요?</strong><br>저희 변환기는 비동기 청크 렌더링을 사용하여 긴 오디오 파일도 브라우저 멈춤 없이 안정적으로 변환할 수 있도록 최적화되어 있습니다.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="border-t border-slate-800 bg-slate-950 py-6 mt-12 text-center text-xs text-slate-500">
+        <p>© 2026 Local WAV to MP3 Converter. Absolutely private, incredibly fast.</p>
+    </footer>
 
     <script src="main.js"></script>
 </body>
