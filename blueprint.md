@@ -9,31 +9,23 @@ A web application that generates and displays random lottery numbers.
 ### Style and Design
 *   **Layout:** A centered container for the lottery number generator.
 *   **Typography:** Clear, readable font for the title and numbers.
-*   **Color Scheme:** A vibrant, energetic palette using linear gradients and high-concentration hues.
+*   **Color Scheme:** Supports **Dark and Light modes** using CSS variables.
 *   **Effects:** 
     *   Glassmorphism (blur, semi-transparent border).
     *   Multi-layered drop shadows for depth.
     *   Subtle noise texture for a premium feel.
-    *   Interactive glow effects on buttons.
+    *   Interactive glow and hover effects.
 *   **Animations:** Staggered "pop-in" animation for generated numbers.
 
 ### Features
 *   **Number Generation:** Generates 6 unique random numbers between 1 and 45.
 *   **Display:** Displays the generated numbers in colored circles with staggered animations.
+*   **Theme Toggle:** A floating button to switch between Dark and Light themes, with preference saved in `localStorage`.
 *   **Interaction:** A button to trigger the generation of new numbers with visual feedback.
-*   **Accessibility:** Screen reader support for generated numbers.
+*   **Accessibility:** Screen reader support (`aria-live`) and proper keyboard navigation.
 
-## Current Task: Enhancing Aesthetics & Animations
+## Completed Tasks
 
-### Plan
-1.  **Visual Enhancements (`style.css`):**
-    *   Add a subtle noise texture to the body background.
-    *   Implement multi-layered "lifted" shadows for the number balls.
-    *   Add a "glow" effect to the "Generate" button on hover.
-    *   Improve the container's glassmorphism effect.
-2.  **Animations (`style.css` & `main.js`):**
-    *   Define a `@keyframes` animation for the number balls to "pop in" with a slight bounce.
-    *   Update `main.js` to apply the animation to each ball with a staggered delay for a more dynamic feel.
-3.  **Accessibility Improvements:**
-    *   Add `aria-live="polite"` to the numbers container to announce new numbers to screen readers.
-    *   Ensure the button has proper focus states.
+1.  **Initial Setup:** Basic structure and generation logic.
+2.  **Aesthetics & Animations:** Premium visuals and staggered pop-in effects.
+3.  **Theme Management:** Dark/Light mode toggle with persistence.
