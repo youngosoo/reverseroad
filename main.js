@@ -1,7 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
     const generateBtn = document.getElementById('generate-btn');
     const numbersContainer = document.querySelector('.numbers-container');
-    const colors = ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3'];
+    const colors = [
+        '#f44336', // Red
+        '#e91e63', // Pink
+        '#9c27b0', // Purple
+        '#673ab7', // Deep Purple
+        '#3f51b5', // Indigo
+        '#2196f3', // Blue
+        '#00bcd4', // Cyan
+        '#009688', // Teal
+        '#4caf50', // Green
+        '#ff9800', // Orange
+    ];
 
     generateBtn.addEventListener('click', () => {
         const lottoNumbers = generateLottoNumbers();
@@ -22,7 +33,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const numberEl = document.createElement('div');
             numberEl.classList.add('number');
             numberEl.textContent = number;
-            numberEl.style.backgroundColor = colors[index % colors.length];
+            
+            // Randomly select a color from the palette, but try to avoid duplicates in a row
+            const colorIndex = (index + Math.floor(Math.random() * colors.length)) % colors.length;
+            numberEl.style.backgroundColor = colors[colorIndex];
+            
+            // Add staggered delay for the animation
+            numberEl.style.animationDelay = `${index * 0.1}s`;
+            
             numbersContainer.appendChild(numberEl);
         });
     }

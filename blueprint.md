@@ -9,32 +9,31 @@ A web application that generates and displays random lottery numbers.
 ### Style and Design
 *   **Layout:** A centered container for the lottery number generator.
 *   **Typography:** Clear, readable font for the title and numbers.
-*   **Color Scheme:** A visually appealing color scheme with a gradient background and contrasting colors for the numbers.
-*   **Effects:** A subtle box-shadow for depth and a hover effect on the button.
+*   **Color Scheme:** A vibrant, energetic palette using linear gradients and high-concentration hues.
+*   **Effects:** 
+    *   Glassmorphism (blur, semi-transparent border).
+    *   Multi-layered drop shadows for depth.
+    *   Subtle noise texture for a premium feel.
+    *   Interactive glow effects on buttons.
+*   **Animations:** Staggered "pop-in" animation for generated numbers.
 
 ### Features
 *   **Number Generation:** Generates 6 unique random numbers between 1 and 45.
-*   **Display:** Displays the generated numbers in colored circles.
-*   **Interaction:** A button to trigger the generation of new numbers.
+*   **Display:** Displays the generated numbers in colored circles with staggered animations.
+*   **Interaction:** A button to trigger the generation of new numbers with visual feedback.
+*   **Accessibility:** Screen reader support for generated numbers.
 
-## Current Task: Initial Setup
+## Current Task: Enhancing Aesthetics & Animations
 
 ### Plan
-1.  **HTML (`index.html`):**
-    *   Set the title to "Lotto Number Generator".
-    *   Create a main container for the app.
-    *   Add a title heading.
-    *   Create a container to display the lottery numbers.
-    *   Add a button to generate the numbers.
-2.  **CSS (`style.css`):**
-    *   Style the body with a gradient background and a subtle texture.
-    *   Center the main container.
-    *   Style the title.
-    *   Style the number display area.
-    *   Style the individual number balls with different colors.
-    *   Style the "Generate" button with a hover effect.
-3.  **JavaScript (`main.js`):**
-    *   Get references to the DOM elements (number container and button).
-    *   Create a function to generate an array of 6 unique random numbers between 1 and 45.
-    *   Create a function to display the numbers in the UI.
-    *   Add a click event listener to the button to call the generation and display functions.
+1.  **Visual Enhancements (`style.css`):**
+    *   Add a subtle noise texture to the body background.
+    *   Implement multi-layered "lifted" shadows for the number balls.
+    *   Add a "glow" effect to the "Generate" button on hover.
+    *   Improve the container's glassmorphism effect.
+2.  **Animations (`style.css` & `main.js`):**
+    *   Define a `@keyframes` animation for the number balls to "pop in" with a slight bounce.
+    *   Update `main.js` to apply the animation to each ball with a staggered delay for a more dynamic feel.
+3.  **Accessibility Improvements:**
+    *   Add `aria-live="polite"` to the numbers container to announce new numbers to screen readers.
+    *   Ensure the button has proper focus states.
