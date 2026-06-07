@@ -1,3 +1,20 @@
+// Theme Management
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+const savedTheme = localStorage.getItem('theme') || 'dark-theme';
+body.className = `text-slate-100 min-h-screen flex flex-col justify-between ${savedTheme}`;
+
+themeToggle.addEventListener('click', () => {
+    if (body.classList.contains('dark-theme')) {
+        body.classList.replace('dark-theme', 'light-theme');
+        localStorage.setItem('theme', 'light-theme');
+    } else {
+        body.classList.replace('light-theme', 'dark-theme');
+        localStorage.setItem('theme', 'dark-theme');
+    }
+});
+
 // Global State
 let selectedFile = null;
 let originalWavHeader = null; 
