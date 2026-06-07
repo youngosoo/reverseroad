@@ -1,7 +1,7 @@
-# Project Blueprint: Local WAV to MP3 Converter
+# Project Blueprint: Local WAV to MP3 Converter (Resource-Enhanced)
 
 ## Overview
-A secure, client-side WAV to MP3 converter that operates entirely within the user's browser, ensuring privacy by avoiding server uploads.
+A secure, client-side WAV to MP3 converter, now enhanced with informative content, navigation, and legal pages to meet high-quality standards for AdSense approval.
 
 ## Features
 - Client-side WAV to MP3 conversion using LameJS.
@@ -10,8 +10,14 @@ A secure, client-side WAV to MP3 converter that operates entirely within the use
 - Responsive UI built with Tailwind CSS.
 - Privacy-focused: No server-side processing.
 
-## Recent Changes
-- Added Google AdSense integration.
+## Content & Transparency Strategy (For AdSense)
+- [ ] Added `about.html` (Site purpose, team info).
+- [ ] Added `privacy.html` (Mandatory, explains data handling).
+- [ ] Added `contact.html` (Formspree for communication).
+- [ ] Added `guides.html` (Educational articles on audio processing).
 
 ## Planned Changes
-- None at this time.
+1.  Develop `about.html`, `privacy.html`, `contact.html`, `guides.html`.
+2.  Add a site-wide navigation bar to link these pages.
+3.  Add educational content about audio formats (WAV vs MP3) to the main page and guides.
+4.  Verify all pages are indexed in Google Search Console.
