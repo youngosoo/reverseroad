@@ -21,6 +21,7 @@ A web application that generates and displays random lottery numbers.
 *   **Number Generation:** Generates 6 unique random numbers between 1 and 45.
 *   **Display:** Displays the generated numbers in colored circles with staggered animations.
 *   **Theme Toggle:** A floating button to switch between Dark and Light themes, with preference saved in `localStorage`.
+*   **Partnership Inquiry:** A specialized form powered by **Formspree** for business inquiries.
 *   **Interaction:** A button to trigger the generation of new numbers with visual feedback.
 *   **Accessibility:** Screen reader support (`aria-live`) and proper keyboard navigation.
 
@@ -29,3 +30,4 @@ A web application that generates and displays random lottery numbers.
 1.  **Initial Setup:** Basic structure and generation logic.
 2.  **Aesthetics & Animations:** Premium visuals and staggered pop-in effects.
 3.  **Theme Management:** Dark/Light mode toggle with persistence.
+4.  **Inquiry Form:** Integration of a Formspree-powered partnership form.
