@@ -23,7 +23,9 @@ A high-performance, privacy-focused web application that converts WAV files to M
 *   **Metadata Analysis:** Parses WAV headers to display technical details (samplerate, channels, etc.).
 *   **Non-blocking Processing:** Implements an asynchronous chunked renderer to keep the UI responsive during conversion.
 *   **Download Options:** Allows saving the converted MP3 and the entire app as a standalone HTML file.
-*   **Theme Management:** Professional dark theme optimized for technical tasks.
+*   **Theme Management:** Professional dark/light themes with persistence.
+*   **Partnership Inquiry:** Formspree-powered business inquiry form with specific fields.
+*   **Ad Integration:** Google AdSense placeholders for monetization.
 
 ## Completed Tasks
 
@@ -31,3 +33,6 @@ A high-performance, privacy-focused web application that converts WAV files to M
 2.  **Core Implementation:** Integrated WAV parsing and MP3 encoding logic.
 3.  **UI/UX:** Designed a modern dashboard with real-time feedback and technical details.
 4.  **Security:** Ensured no external tracking or server-side dependencies for audio data.
+5.  **Theme & Navigation:** Added Dark/Light mode toggle and a top navigation menu.
+6.  **Inquiry Form:** Integrated Formspree with business fields and automatic redirection.
+7.  **Monetization:** Added Google AdSense script and responsive ad unit placeholders.
