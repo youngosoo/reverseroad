@@ -19,7 +19,7 @@
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WAV to MP3 변환기 | 사이트 소개</title>
+    <title>사이트 소개 | WAV to MP3 변환기</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
@@ -30,31 +30,97 @@
         })(window, document, "clarity", "script", "x3a7d75id2");
     </script>
 </head>
-<body class="bg-slate-950 text-slate-300 min-h-screen">
+<body class="bg-slate-950 text-slate-300 min-h-screen flex flex-col">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2GZPMFG"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <!-- Simple Header -->
-    <header class="border-b border-slate-800 p-4">
-        <nav class="max-w-4xl mx-auto flex gap-4 text-sm font-medium">
-            <a href="index.html" class="text-slate-400 hover:text-white">홈</a>
-            <a href="about.html" class="text-indigo-400">사이트 소개</a>
-        </nav>
+
+    <!-- Header -->
+    <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3 group">
+                <div class="bg-indigo-600 text-white p-2 rounded-lg">
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                </div>
+                <span class="text-lg font-bold text-white">WAV to MP3</span>
+            </a>
+            <nav class="flex space-x-6 text-sm font-medium">
+                <a href="index.html" class="text-slate-400 hover:text-white transition-colors">홈</a>
+                <a href="about.html" class="text-white transition-colors">소개</a>
+                <a href="guides.html" class="text-slate-400 hover:text-white transition-colors">가이드</a>
+                <a href="contact.html" class="text-slate-400 hover:text-white transition-colors">문의</a>
+            </nav>
+        </div>
     </header>
 
-    <div class="max-w-4xl mx-auto p-8 space-y-6">
-        <h1 class="text-3xl font-bold text-white">WAV to MP3 변환기 소개</h1>
-        <p class="text-lg">안녕하세요! WAV to MP3 변환기를 찾아주셔서 감사합니다.</p>
-        
-        <h2 class="text-2xl font-semibold text-white mt-6">우리가 이 서비스를 만든 이유</h2>
-        <p>고음질의 WAV 파일을 웹에 올리거나 다른 기기로 전송할 때 파일 용량 때문에 불편함을 겪은 적이 있으신가요? 많은 파일 변환 사이트들은 파일을 서버에 업로드하도록 요구합니다. 하지만 소중한 음원 파일이나 개인적인 녹음 파일이 외부 서버에 저장되는 것이 꺼려질 때가 있습니다.</p>
-        
-        <h2 class="text-2xl font-semibold text-white mt-6">우리의 철학: 100% 안전한 로컬 변환</h2>
-        <p>그래서 저희는 <strong>'사용자의 데이터는 사용자의 기기에서만 머물러야 한다'</strong>는 원칙으로 이 서비스를 개발했습니다. 모든 변환은 브라우저 내에서 직접 이루어지며, 단 1바이트의 오디오 데이터도 외부 서버로 전송되지 않습니다. 보안 걱정 없이 안심하고 마음껏 변환하세요.</p>
-        
-        <h2 class="text-2xl font-semibold text-white mt-6">누구나 쉽게, 고음질로</h2>
-        <p>복잡한 설정 없이도 전문가급 오디오 품질을 유지하며 MP3로 빠르게 변환할 수 있습니다. IT 기술이 서툰 분들도, 전문적인 작업을 하는 분들도 모두 만족할 수 있는 최상의 경험을 제공하는 것이 우리의 목표입니다.</p>
-    </div>
+    <!-- Main Content -->
+    <main class="flex-grow max-w-4xl mx-auto p-8 space-y-10 leading-relaxed">
+        <section class="space-y-6">
+            <h1 class="text-4xl font-extrabold text-white tracking-tight">사이트 소개</h1>
+            <p class="text-lg text-slate-400">
+                WAV to MP3 변환기는 이용자의 보안과 편의를 최우선으로 생각하는 혁신적인 오디오 변환 도구입니다.
+            </p>
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-2xl font-bold text-white">우리의 미션</h2>
+            <p>
+                많은 웹 서비스들이 파일 변환을 위해 사용자 데이터를 서버로 업로드할 것을 요구합니다. 하지만 이는 개인정보 유출의 위험이 있으며, 대용량 파일의 경우 업로드 속도에 따라 많은 시간이 소요됩니다. 저희는 **"데이터는 사용자의 기기를 떠나지 않아야 한다"**는 신념 아래, 서버 없이 브라우저 내에서 모든 변환이 이루어지는 기술을 구현했습니다.
+            </p>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 py-8">
+            <div class="bg-slate-900/50 border border-slate-800 p-6 rounded-2xl space-y-3">
+                <div class="w-12 h-12 bg-emerald-600/20 text-emerald-400 flex items-center justify-center rounded-xl mb-2">
+                    <i class="fa-solid fa-shield-halved text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">철저한 개인정보 보호</h3>
+                <p class="text-sm text-slate-400">어떠한 데이터도 서버로 전송되지 않습니다. 변환된 파일 역시 오직 사용자의 브라우저 메모리에만 존재하며 다운로드 시에만 로컬로 저장됩니다.</p>
+            </div>
+            <div class="bg-slate-900/50 border border-slate-800 p-6 rounded-2xl space-y-3">
+                <div class="w-12 h-12 bg-indigo-600/20 text-indigo-400 flex items-center justify-center rounded-xl mb-2">
+                    <i class="fa-solid fa-bolt text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">압도적인 속도</h3>
+                <p class="text-sm text-slate-400">업로드와 다운로드 대기 시간이 없습니다. 기기의 CPU 성능을 최대한 활용하여 즉각적인 변환 결과를 제공합니다.</p>
+            </div>
+            <div class="bg-slate-900/50 border border-slate-800 p-6 rounded-2xl space-y-3">
+                <div class="w-12 h-12 bg-amber-600/20 text-amber-400 flex items-center justify-center rounded-xl mb-2">
+                    <i class="fa-solid fa-music text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">전문가급 음질</h3>
+                <p class="text-sm text-slate-400">LameJS 인코더를 탑재하여 최대 320kbps의 고품질 MP3 변환을 지원합니다. 원음의 감동을 그대로 담아냅니다.</p>
+            </div>
+            <div class="bg-slate-900/50 border border-slate-800 p-6 rounded-2xl space-y-3">
+                <div class="w-12 h-12 bg-rose-600/20 text-rose-400 flex items-center justify-center rounded-xl mb-2">
+                    <i class="fa-solid fa-mobile-screen text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">멀티 플랫폼 지원</h3>
+                <p class="text-sm text-slate-400">별도의 설치가 필요 없습니다. PC, 태블릿, 모바일 등 최신 브라우저가 작동하는 모든 환경에서 동일한 경험을 제공합니다.</p>
+            </div>
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-2xl font-bold text-white">문의 및 피드백</h2>
+            <p>
+                저희는 이용자의 소중한 의견을 기다리고 있습니다. 서비스 사용 중 불편한 점이나 제안하고 싶은 기능이 있다면 언제든지 <a href="contact.html" class="text-indigo-400 hover:underline">문의하기</a> 페이지를 통해 연락주시기 바랍니다.
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-950 py-12">
+        <div class="max-w-6xl mx-auto px-4 text-center space-y-6">
+            <div class="flex justify-center flex-wrap gap-8 text-xs font-medium uppercase tracking-widest text-slate-500">
+                <a href="index.html" class="hover:text-indigo-400 transition-colors">홈 (Home)</a>
+                <a href="about.html" class="text-indigo-400">사이트 소개 (About)</a>
+                <a href="guides.html" class="hover:text-indigo-400 transition-colors">이용 가이드 (Guides)</a>
+                <a href="privacy.html" class="hover:text-indigo-400 transition-colors">개인정보 처리방침 (Privacy Policy)</a>
+                <a href="contact.html" class="hover:text-indigo-400 transition-colors">문의 및 제휴 (Contact)</a>
+            </div>
+            <p class="text-[10px] text-slate-600">© 2026 Local WAV to MP3 Converter. 모든 권리 보유.</p>
+        </div>
+    </footer>
 </body>
 </html>

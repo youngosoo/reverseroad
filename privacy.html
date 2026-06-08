@@ -19,7 +19,7 @@
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WAV to MP3 변환기 | 개인정보 처리방침</title>
+    <title>개인정보 처리방침 | WAV to MP3 변환기</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
@@ -30,26 +30,127 @@
         })(window, document, "clarity", "script", "x3a7d75id2");
     </script>
 </head>
-<body class="bg-slate-950 text-slate-300 min-h-screen">
+<body class="bg-slate-950 text-slate-300 min-h-screen flex flex-col">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2GZPMFG"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <!-- Simple Header -->
-    <header class="border-b border-slate-800 p-4">
-        <nav class="max-w-4xl mx-auto flex gap-4 text-sm font-medium">
-            <a href="index.html" class="text-slate-400 hover:text-white">홈</a>
-            <a href="privacy.html" class="text-indigo-400">개인정보처리방침</a>
-        </nav>
+
+    <!-- Header -->
+    <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3 group">
+                <div class="bg-indigo-600 text-white p-2 rounded-lg">
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                </div>
+                <span class="text-lg font-bold text-white">WAV to MP3</span>
+            </a>
+            <nav class="flex space-x-6 text-sm font-medium">
+                <a href="index.html" class="text-slate-400 hover:text-white transition-colors">홈</a>
+                <a href="about.html" class="text-slate-400 hover:text-white transition-colors">소개</a>
+                <a href="guides.html" class="text-slate-400 hover:text-white transition-colors">가이드</a>
+                <a href="contact.html" class="text-slate-400 hover:text-white transition-colors">문의</a>
+            </nav>
+        </div>
     </header>
 
-    <div class="max-w-4xl mx-auto p-8 space-y-6">
-        <h1 class="text-3xl font-bold text-white">개인정보 처리방침</h1>
-        <p>저희 WAV to MP3 변환기는 사용자의 개인정보를 소중히 생각합니다.</p>
-        <h2 class="text-xl font-semibold text-white mt-4">데이터 처리 원칙</h2>
-        <p>본 사이트는 서버에 사용자의 오디오 파일을 업로드하지 않습니다. 모든 변환 과정은 사용자의 브라우저 내에서 클라이언트 사이드 기술을 사용하여 처리되므로, 파일 데이터는 저희 서버로 전송되거나 저장되지 않습니다.</p>
-        <h2 class="text-xl font-semibold text-white mt-4">문의</h2>
-        <p>관련 문의는 <a href="contact.html" class="text-indigo-400 hover:underline">문의하기</a> 페이지를 통해 해주시기 바랍니다.</p>
-    </div>
+    <!-- Main Content -->
+    <main class="flex-grow max-w-4xl mx-auto p-8 space-y-10 leading-relaxed">
+        <section class="space-y-4">
+            <h1 class="text-4xl font-extrabold text-white tracking-tight">개인정보 처리방침</h1>
+            <p class="text-slate-400">최종 수정일: 2026년 6월 8일</p>
+            <p>
+                WAV to MP3 변환기(이하 "본 서비스")는 이용자의 개인정보를 소중하게 생각하며, 대한민국의 개인정보 보호법 및 국제적인 개인정보 보호 표준을 준수합니다. 본 방침은 본 서비스를 이용함에 있어 어떤 정보가 수집되고 어떻게 활용되는지 상세히 설명합니다.
+            </p>
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-2xl font-bold text-white">1. 데이터 처리 방식 (100% 로컬 처리)</h2>
+            <p>
+                본 서비스의 가장 핵심적인 가치는 이용자의 데이터 보안입니다. 이용자가 변환을 위해 선택한 모든 오디오 데이터는 **사용자의 기기(브라우저) 내에서만 처리**됩니다.
+            </p>
+            <ul class="list-disc list-inside space-y-2 ml-4">
+                <li>오디오 파일은 서버로 전송되거나 저장되지 않습니다.</li>
+                <li>변환 과정은 클라이언트 사이드 기술(LameJS 등)을 사용하여 웹 브라우저에서 직접 수행됩니다.</li>
+                <li>따라서 본 서비스 운영자는 이용자의 오디오 콘텐츠에 접근하거나 이를 열람할 수 없습니다.</li>
+            </ul>
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-2xl font-bold text-white">2. 로그 파일 (Log Files)</h2>
+            <p>
+                WAV to MP3 변환기는 로그 파일을 사용하는 표준 절차를 따릅니다. 이 파일은 방문자가 웹사이트를 방문할 때 로그를 기록합니다. 모든 호스팅 업체가 이 작업을 수행하며 이는 호스팅 서비스 분석의 일부입니다. 로그 파일에 의해 수집된 정보에는 다음이 포함될 수 있습니다.
+            </p>
+            <ul class="list-disc list-inside space-y-2 ml-4">
+                <li>인터넷 프로토콜(IP) 주소</li>
+                <li>브라우저 유형 및 버전</li>
+                <li>인터넷 서비스 제공업체(ISP)</li>
+                <li>날짜 및 시간 스탬프</li>
+                <li>참조/종료 페이지</li>
+                <li>클릭 횟수 등</li>
+            </ul>
+            <p>이 정보는 개인을 식별할 수 있는 정보와 연결되지 않으며, 추세 분석, 사이트 관리, 사용자 이동 추적 및 인구 통계 정보 수집 목적으로만 사용됩니다.</p>
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-2xl font-bold text-white">3. 쿠키 및 웹 비콘 (Cookies and Web Beacons)</h2>
+            <p>
+                다른 웹사이트와 마찬가지로 본 서비스도 '쿠키'를 사용합니다. 쿠키는 방문자의 선호도 및 방문자가 접근하거나 방문한 웹사이트 페이지 정보를 포함한 정보를 저장하는 데 사용됩니다. 이 정보는 방문자의 브라우저 유형 및 기타 정보를 기반으로 웹 페이지 콘텐츠를 최적화하여 사용자 경험을 최적화하는 데 사용됩니다.
+            </p>
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-2xl font-bold text-white">4. Google DoubleClick DART 쿠키</h2>
+            <p>
+                Google은 당사 사이트의 제3자 공급업체 중 하나입니다. 또한 DART 쿠키라고 알려진 쿠키를 사용하여 당사 사이트 방문자가 웹상의 다른 사이트를 방문한 것을 기반으로 광고를 제공합니다. 그러나 방문자는 다음 URL에서 Google 광고 및 콘텐츠 네트워크 개인정보 보호정책을 방문하여 DART 쿠키 사용을 거부할 수 있습니다.
+                <a href="https://policies.google.com/technologies/ads" class="text-indigo-400 hover:underline" target="_blank" rel="noopener">https://policies.google.com/technologies/ads</a>
+            </p>
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-2xl font-bold text-white">5. 광고 파트너 개인정보 보호정책</h2>
+            <p>
+                본 서비스의 광고 파트너 각각에 대한 개인정보 보호정책을 확인하려면 다음 목록을 참고하십시오. 제3자 광고 서버 또는 광고 네트워크는 본 서비스에 나타나는 각각의 광고 및 링크에 사용되는 쿠키, JavaScript 또는 웹 비콘과 같은 기술을 사용하여 사용자의 브라우저로 직접 전송합니다. 이 경우 IP 주소가 자동으로 수신됩니다. 이러한 기술은 광고 캠페인의 효과를 측정하거나 귀하가 방문하는 웹사이트에서 보는 광고 콘텐츠를 개인화하는 데 사용됩니다.
+            </p>
+            <p class="italic text-slate-400">*본 서비스는 제3자 광고주가 사용하는 이러한 쿠키에 대한 액세스 권한이나 통제권이 없음을 알려드립니다.</p>
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-2xl font-bold text-white">6. 어린이 정보 보호</h2>
+            <p>
+                인터넷을 사용하는 어린이를 보호하는 것도 당사의 우선순위 중 하나입니다. 당사는 부모와 보호자가 온라인 활동을 관찰하고 참여하며 모니터링하고 가이드할 것을 권장합니다.
+            </p>
+            <p>
+                본 서비스는 13세 미만의 어린이로부터 어떠한 개인 식별 정보도 의도적으로 수집하지 않습니다. 귀하의 자녀가 당사 웹사이트에서 이러한 종류의 정보를 제공했다고 생각되면 즉시 당사에 연락해 주시기 바라며, 당사는 그러한 정보를 당사 기록에서 즉시 삭제하기 위해 최선을 다할 것입니다.
+            </p>
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-2xl font-bold text-white">7. 온라인 개인정보 보호정책 범위</h2>
+            <p>
+                본 개인정보 보호정책은 당사의 온라인 활동에만 적용되며 본 서비스를 방문하는 방문자가 공유하거나 수집한 정보와 관련하여 유효합니다. 이 정책은 오프라인 또는 이 웹사이트 이외의 채널을 통해 수집된 정보에는 적용되지 않습니다.
+            </p>
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-2xl font-bold text-white">8. 동의</h2>
+            <p>
+                당사 웹사이트를 이용함으로써 귀하는 당사의 개인정보 보호정책에 동의하고 그 약관에 동의하게 됩니다.
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-950 py-12">
+        <div class="max-w-6xl mx-auto px-4 text-center space-y-6">
+            <div class="flex justify-center space-x-8 text-sm font-medium">
+                <a href="index.html" class="text-slate-400 hover:text-white transition-colors">홈</a>
+                <a href="about.html" class="text-slate-400 hover:text-white transition-colors">소개</a>
+                <a href="privacy.html" class="text-white">개인정보처리방침</a>
+                <a href="contact.html" class="text-slate-400 hover:text-white transition-colors">문의</a>
+            </div>
+            <p class="text-xs text-slate-500">© 2026 WAV to MP3 Converter. 모든 권리 보유.</p>
+        </div>
+    </footer>
 </body>
 </html>
