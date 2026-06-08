@@ -19,8 +19,10 @@
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WAV to MP3 변환기 | 가이드</title>
+    <title>이용 가이드 | WAV to MP3 변환기</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
@@ -30,27 +32,143 @@
         })(window, document, "clarity", "script", "x3a7d75id2");
     </script>
 </head>
-<body class="bg-slate-950 text-slate-300 min-h-screen">
+<body class="bg-slate-950 text-slate-300 min-h-screen flex flex-col">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2GZPMFG"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <!-- Simple Header -->
-    <header class="border-b border-slate-800 p-4">
-        <nav class="max-w-4xl mx-auto flex gap-4 text-sm font-medium">
-            <a href="index.html" class="text-slate-400 hover:text-white">홈</a>
-            <a href="guides.html" class="text-indigo-400">가이드</a>
-        </nav>
+
+    <!-- Header -->
+    <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3 group">
+                <div class="bg-indigo-600 text-white p-2 rounded-lg">
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                </div>
+                <span class="text-lg font-bold text-white">WAV to MP3</span>
+            </a>
+            <nav class="flex space-x-6 text-sm font-medium">
+                <a href="index.html" class="text-slate-400 hover:text-white transition-colors">홈</a>
+                <a href="about.html" class="text-slate-400 hover:text-white transition-colors">소개</a>
+                <a href="guides.html" class="text-white transition-colors">가이드</a>
+                <a href="contact.html" class="text-slate-400 hover:text-white transition-colors">문의</a>
+            </nav>
+        </div>
     </header>
 
-    <div class="max-w-4xl mx-auto p-8 space-y-6">
-        <h1 class="text-3xl font-bold text-white">오디오 변환 가이드</h1>
-        
-        <h2 class="text-2xl font-semibold text-white mt-6">WAV vs MP3: 무엇이 다른가요?</h2>
-        <p>WAV는 비압축 무손실 포맷으로 원음 그대로를 보존하지만 용량이 매우 큽니다. 반면, MP3는 손실 압축 포맷으로 음질을 유지하면서 용량을 획기적으로 줄여, 휴대나 전송에 적합합니다.</p>
-        
-        <h2 class="text-2xl font-semibold text-white mt-6">왜 본 사이트를 사용해야 하나요?</h2>
-        <p>기존 서비스들은 파일을 서버로 업로드하여 변환합니다. 이는 보안상 위험할 수 있습니다. 본 사이트는 브라우저 내에서 직접 변환을 수행하므로, 사용자의 소중한 데이터가 외부로 유출되지 않습니다. 안심하고 사용하세요!</p>
-    </div>
+    <!-- Main Content -->
+    <main class="flex-grow max-w-4xl mx-auto p-8 space-y-12 leading-relaxed">
+        <section class="space-y-6">
+            <h1 class="text-4xl font-extrabold text-white tracking-tight">오디오 변환 및 품질 가이드</h1>
+            <p class="text-lg text-slate-400">
+                WAV 파일을 MP3로 변환할 때 가장 중요한 것은 '품질과 용량의 균형'입니다. 본 가이드를 통해 최적의 설정을 찾아보세요.
+            </p>
+        </section>
+
+        <section class="space-y-6">
+            <h2 class="text-2xl font-bold text-white border-l-4 border-indigo-500 pl-4">MP3 음질(Bitrate)이란 무엇인가요?</h2>
+            <p>
+                비트레이트(Bitrate)는 초당 처리되는 오디오 데이터의 양을 의미하며, 단위는 **kbps**(kilobits per second)를 사용합니다. 비트레이트 숫자가 높을수록 원음에 가까운 고음질을 제공하지만, 결과 파일의 용량은 커지게 됩니다.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                <!-- 128 kbps -->
+                <div class="bg-slate-900/50 border border-slate-800 p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold text-indigo-400 mb-2">128 kbps</h3>
+                    <p class="text-sm font-semibold text-slate-400 mb-3">#용량최적화 #팟캐스트 #음성녹음</p>
+                    <p class="text-sm">
+                        가장 기본적인 품질입니다. 음악 감상에는 다소 부족할 수 있으나, 사람의 목소리가 중심인 강연, 팟캐스트, 단순 음성 녹음 파일을 변환할 때 용량을 극적으로 줄일 수 있어 매우 효율적입니다.
+                    </p>
+                </div>
+                <!-- 192 kbps -->
+                <div class="bg-slate-900/50 border border-slate-800 p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold text-emerald-400 mb-2">192 kbps</h3>
+                    <p class="text-sm font-semibold text-slate-400 mb-3">#표준음질 #범용성 #추천설정</p>
+                    <p class="text-sm">
+                        대부분의 사용자가 가장 선호하는 **표준 설정**입니다. 용량 대비 음질 효율이 매우 뛰어나며, 일반적인 이어폰이나 스피커로 감상할 때 원본과 큰 차이를 느끼기 어려운 수준의 품질을 제공합니다.
+                    </p>
+                </div>
+                <!-- 256 kbps -->
+                <div class="bg-slate-900/50 border border-slate-800 p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold text-amber-400 mb-2">256 kbps</h3>
+                    <p class="text-sm font-semibold text-slate-400 mb-3">#고음질 #음악매니아 #Hi-Fi</p>
+                    <p class="text-sm">
+                        고품질 오디오를 지향하는 사용자에게 적합합니다. 복잡한 악기 구성이 포함된 음악이나 고가의 오디오 장비를 사용하는 경우, 저음역대와 고음역대의 디테일을 더 선명하게 보존할 수 있습니다.
+                    </p>
+                </div>
+                <!-- 320 kbps -->
+                <div class="bg-slate-900/50 border border-slate-800 p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold text-rose-400 mb-2">320 kbps</h3>
+                    <p class="text-sm font-semibold text-slate-400 mb-3">#최고음질 #스튜디오급 #무손실지향</p>
+                    <p class="text-sm">
+                        MP3 포맷이 지원하는 **최고의 품질**입니다. 손실 압축 방식임에도 불구하고 인간의 가청 주파수 범위를 거의 완벽하게 커버하여, CD 음질과 구분하기 어려운 최상의 청취 경험을 제공합니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="space-y-6">
+            <h2 class="text-2xl font-bold text-white border-l-4 border-indigo-500 pl-4">WAV와 MP3, 결정적 차이</h2>
+            <div class="bg-slate-900/30 rounded-2xl overflow-hidden border border-slate-800">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-slate-900 text-white">
+                        <tr>
+                            <th class="p-4">특성</th>
+                            <th class="p-4">WAV (원본)</th>
+                            <th class="p-4">MP3 (변환본)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-800">
+                        <tr>
+                            <td class="p-4 font-semibold">데이터 방식</td>
+                            <td class="p-4">비압축 무손실</td>
+                            <td class="p-4">손실 압축</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-semibold">파일 용량</td>
+                            <td class="p-4">매우 큼 (약 10MB/분)</td>
+                            <td class="p-4">작음 (약 1~2MB/분)</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-semibold">호환성</td>
+                            <td class="p-4">전문 작업용 제한적</td>
+                            <td class="p-4">모든 기기 지원</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-semibold">주 용도</td>
+                            <td class="p-4">레코딩, 마스터링</td>
+                            <td class="p-4">스트리밍, 개인 소장</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="space-y-6">
+            <h2 class="text-2xl font-bold text-white border-l-4 border-indigo-500 pl-4">안전한 로컬 변환 가이드</h2>
+            <p>
+                본 서비스는 사용자의 브라우저 성능을 사용하여 실시간으로 변환을 수행합니다. 따라서 다음 사항을 권장합니다.
+            </p>
+            <ul class="list-disc list-inside space-y-3 ml-4 text-slate-400">
+                <li>**안정적인 브라우저:** 크롬(Chrome), 엣지(Edge) 브라우저 사용을 권장합니다.</li>
+                <li>**멀티태스킹:** 변환 중에는 고사양 게임이나 복잡한 탭 사용을 자제하면 더 빠르게 완료됩니다.</li>
+                <li>**파일 크기:** 200MB 이상의 거대 파일도 변환 가능하지만, 시스템 메모리(RAM) 상황에 따라 다소 시간이 걸릴 수 있습니다.</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-950 py-12">
+        <div class="max-w-6xl mx-auto px-4 text-center space-y-6">
+            <div class="flex justify-center flex-wrap gap-8 text-xs font-medium uppercase tracking-widest text-slate-500">
+                <a href="index.html" class="hover:text-indigo-400 transition-colors">홈 (Home)</a>
+                <a href="about.html" class="hover:text-indigo-400 transition-colors">사이트 소개 (About)</a>
+                <a href="guides.html" class="text-indigo-400">이용 가이드 (Guides)</a>
+                <a href="privacy.html" class="hover:text-indigo-400 transition-colors">개인정보 처리방침 (Privacy Policy)</a>
+                <a href="contact.html" class="hover:text-indigo-400 transition-colors">문의 및 제휴 (Contact)</a>
+            </div>
+            <p class="text-[10px] text-slate-600">© 2026 Local WAV to MP3 Converter. 모든 권리 보유.</p>
+        </div>
+    </footer>
 </body>
 </html>
