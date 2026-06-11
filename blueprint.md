@@ -30,6 +30,11 @@ A secure, client-side WAV to MP3 converter. This project is specifically optimiz
 4.  Integrated Google Tag Manager and AdSense script placeholders.
 5.  **Enhanced MP3 Converter:** Improved filename handling, updated savings badge, and added robust error handling in `main.js`.
 6.  **Optimized Processing UI:** Added descriptive status messages (decoding/encoding) during the conversion process.
+7.  **Fixed MP3 Download Reliability:**
+    - Switched MIME type to `audio/mpeg` for universal browser support.
+    - Implemented `URL.revokeObjectURL()` for proper memory management.
+    - Added filename sanitization to prevent download issues with special characters.
+    - Ensured robust download triggering on all platforms.
 
 ## Next Steps
 1.  **Expand guides.html:** Add more detailed articles about audio formats and bitrates.

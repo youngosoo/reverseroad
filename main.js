@@ -19,6 +19,7 @@ themeToggle.addEventListener('click', () => {
 let selectedFile = null;
 let originalWavHeader = null; 
 let convertedMp3Blob = null;
+let currentBlobUrl = null;
 let audioCtxInstance = null;
 
 // DOM Elements
@@ -334,7 +335,7 @@ async function encodeMP3Async(audioBuffer, bitrate, onProgress) {
     }
     const mp3buf = mp3encoder.flush();
     if (mp3buf.length > 0) mp3Data.push(mp3buf);
-    return new Blob(mp3Data, { type: 'audio/mp3' });
+    return new Blob(mp3Data, { type: 'audio/mpeg' });
 }
 
 function floatTo16BitPCM(input) {
@@ -349,9 +350,11 @@ function floatTo16BitPCM(input) {
 function finishConversion() {
     processingCard.classList.add('hidden');
     
-    // Better filename handling
+    // Better filename handling and sanitization
     const dotIndex = selectedFile.name.lastIndexOf('.');
-    const baseName = dotIndex !== -1 ? selectedFile.name.substring(0, dotIndex) : selectedFile.name;
+    let baseName = dotIndex !== -1 ? selectedFile.name.substring(0, dotIndex) : selectedFile.name;
+    // Basic sanitization: remove potentially problematic characters for file systems
+    baseName = baseName.replace(/[^a-z0-9ㄱ-ㅎㅏ-ㅣ가-힣_\-]/gi, '_');
     const outName = `${baseName}.mp3`;
     
     resultFilename.innerText = outName;
@@ -362,10 +365,18 @@ function finishConversion() {
     const savings = Math.max(0, Math.round(((selectedFile.size - convertedMp3Blob.size) / selectedFile.size) * 100));
     savingBadge.innerText = `-${savings}% 절감`;
     
-    const blobUrl = URL.createObjectURL(convertedMp3Blob);
-    resultAudioPlayer.src = blobUrl;
-    downloadMp3Btn.href = blobUrl;
+    // Revoke old URL to free memory
+    if (currentBlobUrl) {
+        URL.revokeObjectURL(currentBlobUrl);
+    }
+    
+    currentBlobUrl = URL.createObjectURL(convertedMp3Blob);
+    resultAudioPlayer.src = currentBlobUrl;
+    
+    // Configure download button
+    downloadMp3Btn.href = currentBlobUrl;
     downloadMp3Btn.download = outName;
+    
     resultCard.classList.remove('hidden');
     resetProcessingUI();
     showToast("변환 완료", "MP3 파일이 성공적으로 생성되었습니다. 저장 버튼을 눌러 다운로드하세요.", "success");
