@@ -274,15 +274,24 @@ async function startMp3Conversion() {
     resultAudioPlayer.src = '';
     convertBtn.disabled = true;
 
+    processingMsg.innerText = "오디오 데이터 디코딩 중...";
+    processingBar.style.width = '0%';
+    processingPercent.innerText = '0%';
+
     if (!audioCtxInstance) {
         audioCtxInstance = new (window.AudioContext || window.webkitAudioContext)();
     }
 
     try {
+        if (typeof lamejs === 'undefined') {
+            throw new Error("LameJS 라이브러리가 로드되지 않았습니다. 인터넷 연결을 확인하거나 나중에 다시 시도해주세요.");
+        }
+
         const originalBuffer = await selectedFile.arrayBuffer();
         const decodedAudio = await audioCtxInstance.decodeAudioData(originalBuffer);
         const bitrate = parseInt(bitrateSelect.value);
         
+        processingMsg.innerText = "MP3 인코딩 진행 중...";
         convertedMp3Blob = await encodeMP3Async(decodedAudio, bitrate, (percent) => {
             processingBar.style.width = `${percent}%`;
             processingPercent.innerText = `${percent}%`;
@@ -290,8 +299,10 @@ async function startMp3Conversion() {
 
         finishConversion();
     } catch (err) {
-        showToast("변환 실패", err.message, "error");
+        console.error(err);
+        showToast("변환 실패", err.message || "오디오 변환 중 알 수 없는 오류가 발생했습니다.", "error");
         resetProcessingUI();
+        processingCard.classList.add('hidden');
     }
 }
 
@@ -337,17 +348,27 @@ function floatTo16BitPCM(input) {
 
 function finishConversion() {
     processingCard.classList.add('hidden');
-    const outName = `${selectedFile.name.split('.')[0]}.mp3`;
+    
+    // Better filename handling
+    const dotIndex = selectedFile.name.lastIndexOf('.');
+    const baseName = dotIndex !== -1 ? selectedFile.name.substring(0, dotIndex) : selectedFile.name;
+    const outName = `${baseName}.mp3`;
+    
     resultFilename.innerText = outName;
     sizeBefore.innerText = formatBytes(selectedFile.size);
     sizeAfter.innerText = formatBytes(convertedMp3Blob.size);
+    
+    // Update savings badge
+    const savings = Math.max(0, Math.round(((selectedFile.size - convertedMp3Blob.size) / selectedFile.size) * 100));
+    savingBadge.innerText = `-${savings}% 절감`;
+    
     const blobUrl = URL.createObjectURL(convertedMp3Blob);
     resultAudioPlayer.src = blobUrl;
     downloadMp3Btn.href = blobUrl;
     downloadMp3Btn.download = outName;
     resultCard.classList.remove('hidden');
     resetProcessingUI();
-    showToast("변환 완료", "MP3 파일이 준비되었습니다.", "success");
+    showToast("변환 완료", "MP3 파일이 성공적으로 생성되었습니다. 저장 버튼을 눌러 다운로드하세요.", "success");
 }
 
 function resetProcessingUI() {
