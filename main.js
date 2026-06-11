@@ -126,8 +126,18 @@ function formatSeconds(seconds) {
 // Drag & Drop event bindings
 dropZone.addEventListener('click', () => fileInput.click());
 
-dropZone.addEventListener('dragover', (e) => {
-    e.preventDefault();
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    dropZone.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+    }, false);
+});
+
+dropZone.addEventListener('dragover', () => {
+    dropZone.classList.add('border-indigo-500', 'bg-indigo-950/20');
+});
+
+dropZone.addEventListener('dragenter', () => {
     dropZone.classList.add('border-indigo-500', 'bg-indigo-950/20');
 });
 
@@ -136,7 +146,6 @@ dropZone.addEventListener('dragleave', () => {
 });
 
 dropZone.addEventListener('drop', (e) => {
-    e.preventDefault();
     dropZone.classList.remove('border-indigo-500', 'bg-indigo-950/20');
     if (e.dataTransfer.files.length > 0) {
         handleFileSelection(e.dataTransfer.files[0]);
