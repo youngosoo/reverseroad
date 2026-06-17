@@ -19,8 +19,10 @@
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>사이트 소개 | WAV to MP3 변환기</title>
+    <title>사이트 소개 및 미션 | WAV to MP3 변환기</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
@@ -54,60 +56,135 @@
         </div>
     </header>
 
+    <!-- Hero Section -->
+    <section class="relative py-20 overflow-hidden border-b border-slate-800">
+        <div class="max-w-4xl mx-auto px-8 relative z-10 text-center space-y-6">
+            <h1 class="text-4xl md:text-6xl font-black text-white tracking-tighter">데이터의 가치, <br><span class="text-indigo-500">우리는 보안에서 답을 찾았습니다.</span></h1>
+            <p class="text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
+                서버 없는 변환 기술로 당신의 프라이버시를 완벽하게 보호합니다.
+            </p>
+        </div>
+    </section>
+
     <!-- Main Content -->
-    <main class="flex-grow max-w-4xl mx-auto p-8 space-y-10 leading-relaxed">
-        <section class="space-y-6">
-            <h1 class="text-4xl font-extrabold text-white tracking-tight">사이트 소개</h1>
-            <p class="text-lg text-slate-400">
-                WAV to MP3 변환기는 이용자의 보안과 편의를 최우선으로 생각하는 혁신적인 오디오 변환 도구입니다.
-            </p>
-        </section>
-
-        <section class="space-y-4">
-            <h2 class="text-2xl font-bold text-white">우리의 미션</h2>
-            <p>
-                많은 웹 서비스들이 파일 변환을 위해 사용자 데이터를 서버로 업로드할 것을 요구합니다. 하지만 이는 개인정보 유출의 위험이 있으며, 대용량 파일의 경우 업로드 속도에 따라 많은 시간이 소요됩니다. 저희는 **"데이터는 사용자의 기기를 떠나지 않아야 한다"**는 신념 아래, 서버 없이 브라우저 내에서 모든 변환이 이루어지는 기술을 구현했습니다.
-            </p>
-        </section>
-
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 py-8">
-            <div class="bg-slate-900/50 border border-slate-800 p-6 rounded-2xl space-y-3">
-                <div class="w-12 h-12 bg-emerald-600/20 text-emerald-400 flex items-center justify-center rounded-xl mb-2">
-                    <i class="fa-solid fa-shield-halved text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white">철저한 개인정보 보호</h3>
-                <p class="text-sm text-slate-400">어떠한 데이터도 서버로 전송되지 않습니다. 변환된 파일 역시 오직 사용자의 브라우저 메모리에만 존재하며 다운로드 시에만 로컬로 저장됩니다.</p>
+    <main class="flex-grow max-w-4xl mx-auto p-8 space-y-24 leading-relaxed">
+        
+        <!-- Section 1: Our Philosophy -->
+        <section class="space-y-8">
+            <div class="flex items-center gap-4">
+                <div class="h-px flex-grow bg-slate-800"></div>
+                <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Our Philosophy</span>
+                <div class="h-px flex-grow bg-slate-800"></div>
             </div>
-            <div class="bg-slate-900/50 border border-slate-800 p-6 rounded-2xl space-y-3">
-                <div class="w-12 h-12 bg-indigo-600/20 text-indigo-400 flex items-center justify-center rounded-xl mb-2">
-                    <i class="fa-solid fa-bolt text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white">압도적인 속도</h3>
-                <p class="text-sm text-slate-400">업로드와 다운로드 대기 시간이 없습니다. 기기의 CPU 성능을 최대한 활용하여 즉각적인 변환 결과를 제공합니다.</p>
-            </div>
-            <div class="bg-slate-900/50 border border-slate-800 p-6 rounded-2xl space-y-3">
-                <div class="w-12 h-12 bg-amber-600/20 text-amber-400 flex items-center justify-center rounded-xl mb-2">
-                    <i class="fa-solid fa-music text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white">전문가급 음질</h3>
-                <p class="text-sm text-slate-400">LameJS 인코더를 탑재하여 최대 320kbps의 고품질 MP3 변환을 지원합니다. 원음의 감동을 그대로 담아냅니다.</p>
-            </div>
-            <div class="bg-slate-900/50 border border-slate-800 p-6 rounded-2xl space-y-3">
-                <div class="w-12 h-12 bg-rose-600/20 text-rose-400 flex items-center justify-center rounded-xl mb-2">
-                    <i class="fa-solid fa-mobile-screen text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white">멀티 플랫폼 지원</h3>
-                <p class="text-sm text-slate-400">별도의 설치가 필요 없습니다. PC, 태블릿, 모바일 등 최신 브라우저가 작동하는 모든 환경에서 동일한 경험을 제공합니다.</p>
+            <div class="space-y-6">
+                <h2 class="text-3xl font-bold text-white">"왜 변환을 위해 파일을 서버로 보내야만 할까요?"</h2>
+                <p>
+                    저희는 이 질문에서 시작했습니다. 기존의 수많은 온라인 변환 서비스들은 편리함을 대가로 사용자의 파일을 그들의 서버에 업로드하도록 요구합니다. 하지만 그 파일이 서버에서 어떻게 관리되는지, 정말 안전하게 삭제되는지 사용자는 알 길이 없습니다. 
+                </p>
+                <p>
+                    <strong>WAV to MP3 변환기</strong>는 이러한 불합리함을 깨기 위해 탄생했습니다. 우리는 최신 웹 기술을 활용하여 모든 변환 과정을 사용자의 PC 내부(Local)에서 완벽하게 처리하는 시스템을 구축했습니다.
+                </p>
             </div>
         </section>
 
-        <section class="space-y-4">
-            <h2 class="text-2xl font-bold text-white">문의 및 피드백</h2>
-            <p>
-                저희는 이용자의 소중한 의견을 기다리고 있습니다. 서비스 사용 중 불편한 점이나 제안하고 싶은 기능이 있다면 언제든지 <a href="contact.html" class="text-indigo-400 hover:underline">문의하기</a> 페이지를 통해 연락주시기 바랍니다.
-            </p>
+        <!-- Section 2: Core Values Grid -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-slate-900/30 border border-slate-800 p-8 rounded-3xl space-y-4 hover:border-indigo-500/50 transition-colors group">
+                <div class="w-14 h-14 bg-indigo-600/10 text-indigo-400 flex items-center justify-center rounded-2xl group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-lock-keyhole text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">개인정보 제로 리스크</h3>
+                <p class="text-sm text-slate-400 leading-relaxed">사용자의 오디오 파일은 브라우저를 벗어나지 않습니다. 변환 중에도, 변환 후에도 서버에는 어떠한 데이터도 전송되거나 저장되지 않습니다.</p>
+            </div>
+            <div class="bg-slate-900/30 border border-slate-800 p-8 rounded-3xl space-y-4 hover:border-emerald-500/50 transition-colors group">
+                <div class="w-14 h-14 bg-emerald-600/10 text-emerald-400 flex items-center justify-center rounded-2xl group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-microchip text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">클라이언트 측 연산 최적화</h3>
+                <p class="text-sm text-slate-400 leading-relaxed">최신 WebAudio API와 Web Workers 기술을 결합하여, 저사양 기기에서도 안정적으로 고음질 MP3 변환이 가능하도록 알고리즘을 최적화했습니다.</p>
+            </div>
+            <div class="bg-slate-900/30 border border-slate-800 p-8 rounded-3xl space-y-4 hover:border-amber-500/50 transition-colors group">
+                <div class="w-14 h-14 bg-amber-600/10 text-amber-400 flex items-center justify-center rounded-2xl group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-code text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">오픈 소스 정신 계승</h3>
+                <p class="text-sm text-slate-400 leading-relaxed">검증된 LameJS 인코더를 기반으로 개발되어, 전 세계적으로 인정받은 MP3 압축 기술의 혜택을 웹 브라우저에서 그대로 누릴 수 있습니다.</p>
+            </div>
+            <div class="bg-slate-900/30 border border-slate-800 p-8 rounded-3xl space-y-4 hover:border-rose-500/50 transition-colors group">
+                <div class="w-14 h-14 bg-rose-600/10 text-rose-400 flex items-center justify-center rounded-2xl group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-hand-holding-heart text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">사용자 중심 인터페이스</h3>
+                <p class="text-sm text-slate-400 leading-relaxed">복잡한 설정 없이 직관적인 드래그 앤 드롭만으로 누구나 전문가 수준의 오디오 변환을 경험할 수 있도록 디자인했습니다.</p>
+            </div>
         </section>
+
+        <!-- Section 3: Technical Roadmap -->
+        <section class="space-y-12">
+            <h2 class="text-3xl font-bold text-white text-center">우리가 걸어온 길, 그리고 나아갈 방향</h2>
+            <div class="relative space-y-8 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-800 before:to-transparent">
+                
+                <!-- Step 1 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-slate-800 bg-slate-900 text-slate-500 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <i class="fa-solid fa-check text-xs"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[45%] p-6 rounded-2xl border border-slate-800 bg-slate-900/20">
+                        <h4 class="font-bold text-white">MVP 개발 및 출시</h4>
+                        <p class="text-sm text-slate-500 mt-1">브라우저 내 핵심 인코딩 엔진 탑재 및 기본 변환 기능 구현 완료</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-slate-800 bg-slate-900 text-slate-500 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <i class="fa-solid fa-check text-xs"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[45%] p-6 rounded-2xl border border-slate-800 bg-slate-900/20">
+                        <h4 class="font-bold text-white">UI/UX 고도화 및 멀티비트레이트 지원</h4>
+                        <p class="text-sm text-slate-500 mt-1">사용자 피드백을 반영한 다크 모드 지원 및 최고 320kbps 설정 추가</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-indigo-500 bg-slate-900 text-indigo-500 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <i class="fa-solid fa-spinner animate-spin text-xs"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[45%] p-6 rounded-2xl border border-indigo-500/30 bg-indigo-500/5">
+                        <h4 class="font-bold text-white">다양한 포맷 확장 준비</h4>
+                        <p class="text-sm text-slate-400 mt-1">FLAC, OGG 등 고품질 오디오 포맷 지원을 위한 라이브러리 테스트 중</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 4: Ethics -->
+        <section class="bg-indigo-600/5 border border-indigo-500/20 p-10 rounded-3xl space-y-6">
+            <h2 class="text-2xl font-bold text-white flex items-center gap-3">
+                <i class="fa-solid fa-user-shield text-indigo-400"></i> 투명성과 신뢰
+            </h2>
+            <p class="text-slate-400 leading-relaxed">
+                우리는 광고를 통해 이 무료 서비스를 유지하고 있습니다. 하지만 광고가 사용자의 경험을 해치거나 보안을 위협해서는 안 된다는 원칙을 가지고 있습니다. AdSense 정책을 준수하며, 사용자에게 가치 있는 정보를 전달하는 광고만을 게재할 것을 약속드립니다. 
+            </p>
+            <div class="pt-4 border-t border-slate-800">
+                <p class="text-xs text-slate-500 italic text-center">"세상을 이롭게 하는 기술은 투명함에서 시작됩니다."</p>
+            </div>
+        </section>
+
     </main>
+
+    <!-- Ad Unit: Bottom -->
+    <div class="max-w-4xl mx-auto px-4 w-full mb-12 text-center">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-7170278463678851"
+             data-ad-slot="auto"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
 
     <!-- Footer -->
     <footer class="border-t border-slate-800 bg-slate-950 py-12">
