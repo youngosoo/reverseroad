@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>오디오 클리핑 완벽 방지 가이드: 디지털 왜곡의 원인과 해결책</title>
-    <meta name="description" content="오디오 녹음 및 믹싱 시 발생하는 최악의 적인 클리핑(Clipping)과 디지털 왜곡의 원인을 알아보고, 게인 스테이징과 헤드룸 확보를 통해 이를 예방하는 방법을 설명합니다.">
-    <meta name="keywords" content="오디오 클리핑, 디지털 왜곡, 게인 스테이징, 헤드룸, 녹음 레벨, 마스터링, 음질, 오디오 엔지니어링, Clipping">
-    <meta name="author" content="WAV to MP3 Converter">
+    <title>오디오 클리핑 완벽 방지 가이드: 디지털 왜곡의 원인과 해결책 | Reverseroad Audio Engineering</title>
+    <meta name="description" content="오디오 녹음 및 믹싱 시 발생하는 최악의 적인 클리핑(Clipping)과 디지털 왜곡의 원인을 심층 분석하고, 전문가 수준의 게인 스테이징과 헤드룸 확보 전략을 통해 이를 완벽하게 예방하는 방법을 제시합니다.">
+    <meta name="keywords" content="오디오 클리핑, 디지털 왜곡, 게인 스테이징, 헤드룸, 녹음 레벨, 마스터링, 음질, 오디오 엔지니어링, Clipping, 0dBFS, SNR">
+    <meta name="author" content="Reverseroad Audio Engineering Team">
     <meta property="og:title" content="오디오 클리핑 완벽 방지 가이드: 디지털 왜곡의 원인과 해결책">
-    <meta property="og:description" content="오디오 클리핑(Clipping)과 디지털 왜곡의 원인을 알아보고, 게인 스테이징과 헤드룸 확보를 통해 이를 예방하는 방법을 설명합니다.">
+    <meta property="og:description" content="디지털 오디오의 한계를 이해하고 클리핑을 원천 차단하는 프로 엔지니어의 게인 스테이징 전략을 배워보세요.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://wav-to-mp3-converter.com/guides/audio-clipping-protection.html">
     <meta name="google-adsense-account" content="ca-pub-7170278463678851">
     <link rel="stylesheet" href="../style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7170278463678851" crossorigin="anonymous"></script>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
@@ -30,67 +31,157 @@
     </header>
 
     <main class="container mx-auto px-6 py-12">
-        <article class="prose lg:prose-xl dark:prose-invert mx-auto">
-            <header>
-                <h1 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">오디오 클리핑 완벽 방지 가이드</h1>
-                <p class="text-lg text-gray-600 dark:text-gray-400">2023년 11월 5일</p>
+        <article class="prose lg:prose-xl dark:prose-invert mx-auto max-w-4xl">
+            <header class="mb-12 border-b border-gray-200 dark:border-gray-700 pb-8">
+                <h1 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-4 leading-tight">오디오 클리핑 완벽 방지 가이드: 디지털 왜곡의 원인과 해결책</h1>
+                <div class="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
+                    <span class="bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300 px-2 py-1 rounded font-semibold">Professional Deep-Dive</span>
+                    <time datetime="2026-01-01">2026년 1월 1일 업데이트</time>
+                    <span>• 작성: Reverseroad 오디오 엔지니어링 팀</span>
+                </div>
             </header>
 
-            <section>
-                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">서론: 오디오의 가장 끔찍한 적, 클리핑</h2>
-                <p>오디오 작업에서 절대로 피해야 할 한 가지를 꼽으라면 단연코 <strong>클리핑(Clipping)</strong>입니다. 클리핑은 오디오 신호가 처리할 수 있는 최대 허용치를 초과할 때 발생하는 현상으로, 파형의 봉우리가 잘려나가며 "지지직"거리는 듣기 싫은 왜곡(Distortion)을 만들어냅니다. 한 번 녹음된 클리핑은 사실상 복구가 불가능하며, 소중한 녹음물을 완전히 망쳐버릴 수 있습니다. 이 가이드에서는 클리핑의 원인을 이해하고, 이를 예방하기 위한 핵심적인 기술인 '게인 스테이징'과 '헤드룸'의 개념을 알아봅니다.</p>
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">서론: 디지털 오디오의 한계와 클리핑</h2>
+                <p class="leading-relaxed mb-4">
+                    오디오 엔지니어링의 세계에서 <a href="../glossary.html" class="text-indigo-600 dark:text-indigo-400 hover:underline">클리핑(Clipping)</a>은 단순한 소음이 아니라 <strong>'데이터의 손실'</strong>을 의미합니다. 디지털 오디오 시스템은 표현할 수 있는 전압의 최댓값이 정해져 있으며, 이 한계를 넘어서는 순간 파형의 상단과 하단이 칼로 자른 듯 평평하게 깎여나갑니다.
+                </p>
+                <p class="leading-relaxed mb-6">
+                    결과적으로 부드러운 사인파가 거친 사각형 파형(Square Wave)으로 변하며, 이는 청각적으로 매우 불쾌한 고주파 왜곡(Harmonic Distortion)으로 나타납니다. 아날로그 테이프의 '새츄레이션(Saturation)'이 음악적인 따뜻함을 준다면, 디지털 클리핑은 무자비하고 차가운 찢어지는 소리만을 남깁니다. 무엇보다 치명적인 것은 <strong>한 번 클리핑된 데이터는 어떤 플러그인으로도 완벽하게 복구할 수 없다</strong>는 점입니다.
+                </p>
+                <div class="bg-rose-900/30 border-l-4 border-rose-500 p-4 my-6 rounded-r-lg">
+                    <p class="text-sm text-rose-200 font-bold mb-1"><i class="fa-solid fa-triangle-exclamation mr-2"></i>주의: 복구 불가능한 손실</p>
+                    <p class="text-sm text-rose-100">많은 초보자가 리미터나 EQ를 통해 클리핑을 '수정'하려 하지만, 이미 깎여나간 파형의 정점(Peak) 데이터는 사라진 상태입니다. 해결책은 오직 '예방'뿐입니다.</p>
+                </div>
             </section>
 
-            <section>
-                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">클리핑은 왜, 어디서 발생하는가?</h2>
-                <p>디지털 오디오 시스템에서 소리의 크기는 0dBFS(Decibels Full Scale)를 최댓값으로 합니다. 0dBFS는 시스템이 왜곡 없이 표현할 수 있는 가장 큰 소리이며, 이 값을 초과하는 모든 신호는 강제로 잘려나가게 됩니다. 클리핑은 오디오 신호가 거치는 모든 단계에서 발생할 수 있습니다.</p>
-                <ul>
-                    <li><strong>녹음 단계:</strong> 오디오 인터페이스의 마이크 프리앰프 게인(Gain)을 너무 높게 설정한 경우. 마이크에 입력된 소리가 프리앰프의 처리 용량을 초과하여, 디지털로 변환되기도 전에 이미 찢어진 소리로 기록됩니다.</li>
-                    <li><strong>믹싱 단계:</strong> 여러 트랙의 소리가 합쳐지면서 마스터 버스(Master Bus)의 레벨이 0dBFS를 초과하는 경우. 또는 특정 플러그인(이퀄라이저, 컴프레서 등)에 너무 강한 신호를 입력하여 플러그인 내부에서 클리핑이 발생하는 경우도 있습니다.</li>
-                    <li><strong>마스터링 단계:</strong> 최종 음량을 끌어올리는 과정에서 리미터(Limiter)를 과도하게 사용하여 파형이 찌그러지는 경우.</li>
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">클리핑의 기술적 메커니즘: 0dBFS의 이해</h2>
+                <p class="leading-relaxed mb-4">
+                    디지털 오디오의 기준점은 <a href="../glossary.html" class="text-indigo-600 dark:text-indigo-400 hover:underline">0dBFS(Decibels Full Scale)</a>입니다. 여기서 'Full Scale'이란 해당 시스템(예: 24비트 정수 방식)이 표현할 수 있는 최대 수치(최대 진폭)를 의미합니다. 0dBFS는 디지털 세계의 '천장'과 같습니다.
+                </p>
+                <h3 class="text-2xl font-semibold mt-8 mb-4">클리핑이 발생하는 3가지 주요 지점</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                    <div class="bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
+                        <h4 class="font-bold text-indigo-600 dark:text-indigo-400 mb-2">1. 입력 단계 (ADC)</h4>
+                        <p class="text-sm leading-relaxed">마이크 프리앰프의 게인이 너무 높아 A/D 컨버터로 들어오는 전기 신호가 처리 범위를 넘을 때 발생합니다. 가장 치명적인 단계입니다.</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
+                        <h4 class="font-bold text-indigo-600 dark:text-indigo-400 mb-2">2. 프로세싱 단계</h4>
+                        <p class="text-sm leading-relaxed">EQ의 게인을 과도하게 올리거나, 컴프레서의 메이크업 게인을 너무 높여 플러그인 내부에서 0dBFS를 초과할 때 발생합니다.</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 p-5 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
+                        <h4 class="font-bold text-indigo-600 dark:text-indigo-400 mb-2">3. 합산 단계 (Summing)</h4>
+                        <p class="text-sm leading-relaxed">여러 트랙의 신호가 마스터 버스에서 합쳐지면서 전체 레벨이 0dBFS를 넘어갈 때 발생합니다.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">전문가 전략 1: 전략적 게인 스테이징 (Gain Staging)</h2>
+                <p class="leading-relaxed mb-4">
+                    <a href="../glossary.html" class="text-indigo-600 dark:text-indigo-400 hover:underline">게인 스테이징</a>은 신호 경로의 모든 단계에서 최적의 레벨을 유지하는 예술입니다. 핵심은 <a href="../glossary.html" class="text-indigo-600 dark:text-indigo-400 hover:underline">SNR(신호 대 잡음비)</a>을 극대화하면서도 천장(0dBFS)에 닿지 않게 하는 것입니다.
+                </p>
+                
+                <div class="bg-indigo-900/30 border-l-4 border-indigo-500 p-4 my-6 rounded-r-lg">
+                    <p class="text-sm text-indigo-200 font-bold mb-1"><i class="fa-solid fa-lightbulb mr-2"></i>전문가 팁: 24비트의 이점을 활용하세요</p>
+                    <p class="text-sm text-indigo-100">과거 16비트 시대에는 노이즈 플로어를 피하기 위해 최대한 크게 녹음해야 했지만, 24비트 환경에서는 다이내믹 레인지가 비약적으로 넓어졌습니다. 이제는 0dBFS에 가깝게 녹음하려 애쓰기보다, -12dBFS 정도의 여유를 두는 것이 훨씬 안전하며 음질 저하가 거의 없습니다.</p>
+                </div>
+
+                <h3 class="text-2xl font-semibold mt-8 mb-4">단계별 레벨 가이드라인</h3>
+                <ul class="space-y-4 mb-6">
+                    <li class="flex gap-3">
+                        <span class="font-bold text-indigo-500">녹음 단계:</span> 
+                        <span>피크 레벨을 <strong>-12dBFS ~ -6dBFS</strong> 사이로 설정하십시오. 예상치 못한 다이내믹스의 변화(갑작스러운 고함 등)에도 클리핑을 방지할 수 있는 안전 마진입니다.</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="font-bold text-indigo-500">믹싱 단계:</span> 
+                        <span>개별 트랙의 피크가 -12dBFS 정도에 머물게 하십시오. 이렇게 하면 여러 트랙이 합쳐져도 마스터 버스에서 클리핑이 발생할 확률이 현저히 낮아집니다.</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="font-bold text-indigo-500">마스터링 단계:</span> 
+                        <span>최종 출력 직전 리미터를 사용하여 0dBFS를 절대 넘지 않도록 설정하십시오. 보통 -1.0dBTP(True Peak) 설정을 권장합니다.</span>
+                    </li>
                 </ul>
-                <p>이 중에서도 가장 치명적인 것은 복구가 불가능한 <strong>녹음 단계의 클리핑</strong>입니다.</p>
             </section>
 
-            <section>
-                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">해결책 1: 올바른 게인 스테이징 (Gain Staging)</h2>
-                <p>게인 스테이징은 오디오 신호가 아날로그에서 디지털로, 그리고 여러 플러그인을 거쳐 최종 출력에 이르기까지 각 단계의 레벨을 적절하게 관리하는 기술입니다. 목표는 신호 대 잡음비(SNR)는 최대한 높게 유지하면서, 어떤 단계에서도 클리핑이 발생하지 않도록 하는 것입니다.</p>
-                <h3 class="text-xl font-bold mt-6 mb-2">녹음 레벨 설정의 황금률</h3>
-                <p>녹음 시, DAW의 레벨 미터를 주시하며 가장 큰 소리로 연주하거나 노래할 때의 피크(Peak) 레벨을 확인하세요. 이 피크 레벨이 <strong>-12dBFS에서 -6dBFS 사이</strong>에 위치하도록 오디오 인터페이스의 게인 노브를 조절하는 것이 가장 이상적입니다. </p>
-                <ul>
-                    <li><strong>레벨이 너무 낮으면 (-18dBFS 이하):</strong> 신호가 약해져 배경 노이즈(Noise Floor)와 가까워집니다. 나중에 볼륨을 키우면 노이즈도 함께 증폭되어 음질이 저하됩니다.</li>
-                    <li><strong>레벨이 너무 높으면 (-6dBFS 이상):</strong> 예기치 않은 큰 소리에 의해 클리핑이 발생할 위험이 커집니다.</li>
-                </ul>
-                 <p>기억하세요: "나중에 키우면 되지"라는 생각으로 너무 작게 녹음하는 것보다, 클리핑되지 않는 범위 내에서 최대한 크고 건강한 신호를 받는 것이 좋습니다. 24비트 녹음 환경은 이를 훨씬 용이하게 만들어줍니다.</p>
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">전문가 전략 2: 헤드룸 (Headroom) 확보의 과학</h2>
+                <p class="leading-relaxed mb-4">
+                    <a href="../glossary.html" class="text-indigo-600 dark:text-indigo-400 hover:underline">헤드룸</a>은 현재 신호의 최고점과 시스템의 한계점 사이의 '여백'입니다. 이 여백이 충분해야만 소리가 '숨을 쉴 수' 있으며, 이후의 프로세싱(컴프레션, EQ 등)에서 왜곡 없이 정밀한 조정이 가능합니다.
+                </p>
+
+                <div class="bg-amber-900/30 border-l-4 border-amber-500 p-4 my-6 rounded-r-lg">
+                    <p class="text-sm text-amber-200 font-bold mb-1"><i class="fa-solid fa-circle-exclamation mr-2"></i>흔한 실수: '나중에 키우면 된다'는 맹신</p>
+                    <p class="text-sm text-amber-100">너무 작게 녹음(-30dBFS 이하)한 후 나중에 게인을 대폭 올리는 경우, 신호뿐만 아니라 시스템의 기본 노이즈(Hiss)까지 함께 증폭되어 SNR이 급격히 나빠집니다. '적당한 크기'의 건강한 신호를 받는 것이 핵심입니다.</p>
+                </div>
             </section>
 
-            <section>
-                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">해결책 2: 충분한 헤드룸 (Headroom) 확보</h2>
-                <p><strong>헤드룸</strong>이란, 오디오 신호의 평균적인 레벨과 시스템의 최대 레벨(0dBFS) 사이의 공간, 즉 '여유 공간'을 의미합니다. 헤드룸이 충분하면 갑작스럽게 큰 소리가 나더라도 클리핑 없이 안전하게 처리할 수 있습니다.</p>
-                 <p>녹음 시 피크 레벨을 -6dBFS 이하로 유지하는 것은 약 6dB의 헤드룸을 확보하는 것과 같습니다. 믹싱 과정에서도 마찬가지입니다. 각 트랙의 레벨을 조절하고, 여러 트랙이 합쳐지는 마스터 버스에서 클리핑이 발생하지 않도록 전체 레벨이 0dBFS를 넘지 않게 관리해야 합니다. 일반적으로 마스터 버스의 피크 레벨도 -3dBFS에서 -6dBFS 사이를 유지하며 충분한 헤드룸을 남겨두는 것이 마스터링 작업을 위해 바람직합니다.</p>
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">실제 적용 사례: 파워풀한 보컬 녹음 세션</h2>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm">
+                    <p class="font-bold text-indigo-600 dark:text-indigo-400 mb-3">시나리오: 다이내믹 레인지가 매우 큰 록 보컬 녹음</p>
+                    <p class="text-sm leading-relaxed mb-4">
+                        보컬리스트가 평소에는 조용히 읊조리다가 후렴구에서 갑자기 폭발적인 성량을 내는 경우, 고정된 게인 설정으로는 클리핑을 피하기 어렵습니다.
+                    </p>
+                    <p class="text-sm leading-relaxed mb-4">
+                        <strong>엔지니어의 해결책:</strong>
+                        <ol class="list-decimal ml-5 space-y-2 text-sm">
+                            <li>가장 큰 소리를 내는 구간을 먼저 리허설하여 <strong>절대적인 피크치</strong>를 확인합니다.</li>
+                            <li>그 피크치가 -6dBFS에 오도록 게인을 설정하여 넉넉한 헤드룸을 확보합니다.</li>
+                            <li>입력 단계에서 하드웨어 컴프레서를 아주 약하게(2:1 비율) 사용하여 피크만 살짝 눌러줍니다.</li>
+                            <li>DAW 내에서 <strong>24비트로 녹음</strong>하여, 조용한 부분의 해상도를 유지하면서 큰 부분의 클리핑을 원천 차단합니다.</li>
+                        </ol>
+                    </p>
+                    <p class="text-sm font-semibold text-emerald-600 dark:text-emerald-400 mt-3">결과: 단 한 번의 클리핑 없이 깨끗한 소스를 확보했으며, 믹싱 단계에서 컴프레서를 통해 보컬의 질감을 완벽하게 제어할 수 있었습니다.</p>
+                </div>
             </section>
-            
-            <section>
-                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">결론: 예방이 최선의 치료</h2>
-                <p>클리핑은 한번 발생하면 돌이킬 수 없는 상처를 남깁니다. 따라서 녹음 단계부터 세심한 주의를 기울여 이를 예방하는 것이 무엇보다 중요합니다.</p>
-                <ol>
-                    <li><strong>24비트로 녹음하세요:</strong> 넓은 다이내믹 레인지는 게인 설정에 여유를 줍니다.</li>
-                    <li><strong>리허설을 통해 최대 피크 레벨을 확인하세요:</strong> 가장 큰 부분에 맞춰 게인을 설정해야 합니다.</li>
-                    <li><strong>피크 레벨은 -12dBFS ~ -6dBFS를 목표로 하세요:</strong> 이것이 가장 안전하고 효율적인 녹음 레벨입니다.</li>
-                    <li><strong>DAW의 클립 표시등을 주시하세요:</strong> 빨간불이 들어온다면 즉시 게인을 줄여야 합니다.</li>
-                </ol>
-                <p>깨끗하게 녹음된 WAV 파일은 그 자체로 최고의 자산입니다. 저희 WAV to MP3 변환기와 같은 도구를 사용하더라도, 원본에 클리핑이 있다면 그 왜곡은 MP3 파일에 그대로 남게 됩니다. 항상 클리핑 없는 건강한 소스를 확보하는 습관을 들이는 것이 프로페셔널한 사운드를 만드는 첫걸음입니다.</p>
+
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">결론: 프로페셔널 사운드의 시작은 예방</h2>
+                <p class="leading-relaxed mb-6">
+                    결국 최고의 음질은 화려한 플러그인이 아니라, <strong>'깨끗한 원본 소스'</strong>에서 결정됩니다. 클리핑은 디지털 오디오에서 가장 피해야 할 치명적인 오류이며, 이를 방지하는 게인 스테이징 습관은 모든 오디오 엔지니어의 기본 소양입니다.
+                </p>
+                <div class="bg-slate-100 dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700">
+                    <h4 class="font-bold mb-3">최종 체크리스트</h4>
+                    <ul class="list-disc ml-5 space-y-2 text-sm">
+                        <li>녹음 시 피크 레벨이 <strong>-12dBFS ~ -6dBFS</strong>인가?</li>
+                        <li><strong>24비트</strong> 설정을 사용하여 다이내믹 레인지를 확보했는가?</li>
+                        <li>마스터 버스에서 <strong>0dBFS</strong>를 초과하는 빨간불이 켜지지 않았는가?</li>
+                        <li>후속 프로세싱을 위한 <strong>헤드룸</strong>을 충분히 남겨두었는가?</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700">
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">관련 가이드</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <a href="how-to-record-high-quality-wav.html" class="block p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-indigo-500 transition-colors group">
+                        <p class="text-sm font-bold group-hover:text-indigo-500">고음질 WAV 녹음 방법</p>
+                        <p class="text-xs text-gray-500 mt-1">클리핑 없는 깨끗한 녹음을 위한 실전 가이드</p>
+                    </a>
+                    <a href="sample-rate-explained.html" class="block p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-indigo-500 transition-colors group">
+                        <p class="text-sm font-bold group-hover:text-indigo-500">샘플 레이트의 이해</p>
+                        <p class="text-xs text-gray-500 mt-1">디지털 오디오의 시간축 해상도 분석</p>
+                    </a>
+                    <a href="bit-depth-audio.html" class="block p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-indigo-500 transition-colors group">
+                        <p class="text-sm font-bold group-hover:text-indigo-500">비트 깊이(Bit Depth) 분석</p>
+                        <p class="text-xs text-gray-500 mt-1">24비트 녹음이 왜 중요한가?</p>
+                    </a>
+                </div>
             </section>
         </article>
     </main>
 
     <footer class="bg-white dark:bg-gray-800 mt-12 py-8">
         <div class="container mx-auto px-6 text-center text-gray-600 dark:text-gray-400">
-            <p>&copy; 2023 WAV to MP3 Converter. All Rights Reserved.</p>
-            <div class="flex justify-center space-x-4 mt-4">
+            <p>&copy; 2026 WAV to MP3 Converter. All Rights Reserved.</p>
+            <div class="flex justify-center flex-wrap gap-x-6 gap-y-2 mt-4 text-sm">
                 <a href="../privacy.html" class="hover:text-blue-500">개인정보처리방침</a>
                 <a href="../about.html" class="hover:text-blue-500">소개</a>
                 <a href="../contact.html" class="hover:text-blue-500">문의하기</a>
+                <a href="../glossary.html" class="hover:text-blue-500">용어 사전</a>
+                <a href="../terms.html" class="hover:text-blue-500">이용약관</a>
             </div>
         </div>
     </footer>
